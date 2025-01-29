@@ -2,14 +2,14 @@
     "version": 2,
     "builds": [
         {
-            "src": "./index.js",
+            "src": "app.js",
             "use": "@vercel/node"
         }
     ],
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "./index.js",
+            "dest": "app.js",
             "methods": [
                 "GET",
                 "POST",
@@ -19,7 +19,7 @@
                 "OPTIONS"
             ],
             "headers": {
-                "Access-Control-Allow-Origin": "https://react-js-fundamentals-client.vercel.app"
+                "Access-Control-Allow-Origin": "*"
             }
         }
     ]
