@@ -68,17 +68,10 @@ async function CreateAbl(req, res) {
       });
     }
   } catch (e) {
-    console.error("Error in CreateAbl:", e); // Logovanie chyby pre diagnostiku
-
-    // Skontrolujeme, či `e` je reťazec a môžeme použiť `includes`
-    if (typeof e === "string" && e.includes("with id")) {
+    if (e.includes("with id")) {
       res.status(400).send({ errorMessage: e, params: req.body });
     } else {
-      // Ak `e` nie je reťazec, vrátime generickú chybu
-      res.status(500).send({
-        errorMessage: "Internal server error",
-        details: typeof e === "object" ? e.message || e : e, // Bezpečné spracovanie chyby
-      });
+      res.status(500).send(e);
     }
   }
 }
