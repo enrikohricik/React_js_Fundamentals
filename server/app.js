@@ -14,9 +14,10 @@ app.use(express.urlencoded({ extended: true }));
 
 // CORS configuration - Allow frontend domain
 app.use(cors({
-  origin: "https://react-js-fundamentals-client.vercel.app", // Povoľte vašu frontendovú URL
+  origin: "https://react-js-fundamentals-client.vercel.app", // Povoliť iba frontendovú URL
   methods: ["GET", "POST", "PUT", "DELETE"], // Povolené HTTP metódy
-  credentials: true // Povolenie cookies a autentifikácie
+  allowedHeaders: ["Content-Type", "Authorization"], // Povolené hlavičky
+  credentials: true // Ak používate cookies alebo autentifikáciu
 }));
 
 // Middleware na logovanie požiadaviek (voliteľné)
