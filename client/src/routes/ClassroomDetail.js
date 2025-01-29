@@ -18,7 +18,7 @@ function ClassroomDetail() {
     setClassroomLoadCall({
       state: "pending",
     });
-    fetch(`http://localhost:3000/classroom/load?id=${classroomId}`, {
+    fetch(`${process.env.REACT_APP_API_URL}/classroom/load?id=${classroomId}`, {
       method: "GET",
     }).then(async (response) => {
       const responseJson = await response.json();

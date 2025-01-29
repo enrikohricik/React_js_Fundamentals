@@ -20,17 +20,18 @@ function App() {
   let navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`http://localhost:3000/classroom/list`, {
+    fetch(`${process.env.REACT_APP_API_URL}/classroom/list`, {
       method: "GET",
     }).then(async (response) => {
-      const responseJson = await response.json()
+      const responseJson = await response.json();
       if (response.status >= 400) {
-        setListClassroomsCall({ state: "error", error: responseJson })
+        setListClassroomsCall({ state: "error", error: responseJson });
       } else {
-        setListClassroomsCall({ state: "success", data: responseJson })
+        setListClassroomsCall({ state: "success", data: responseJson });
       }
-    })
+    });
   }, [])
+
 
   function getSchoolListDropdown() {
     switch (listClassroomsCall.state) {

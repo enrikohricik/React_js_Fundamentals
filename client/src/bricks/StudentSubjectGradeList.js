@@ -64,7 +64,7 @@ function StudentSubjectGradeList({ student, subject, disabled }) {
 
   async function fetchData() {
     const res = await fetch(
-      `http://localhost:3000/grade/list?subjectId=${subject.id}&studentId=${student.id}`
+      `${process.env.REACT_APP_API_URL}/grade/list?subjectId=${subject.id}&studentId=${student.id}`
     )
     const data = await res.json()
 

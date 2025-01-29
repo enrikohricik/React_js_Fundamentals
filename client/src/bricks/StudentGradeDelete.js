@@ -13,7 +13,7 @@ export default function StudentGradeDelete({ grade, onDelete, onError }) {
 
     setDeleteGradeCall({ state: "pending" })
 
-    const res = await fetch(`http://localhost:3000/grade/delete`, {
+    const res = await fetch(`${process.env.REACT_APP_API_URL}/grade/delete`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
